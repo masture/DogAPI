@@ -60,7 +60,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        DogAPI.requestRandomImage(completionHandler: hanldeRandomImageResponse(dogImage:error:))
+        DogAPI.requestRandomImage(for: breeds[row], completionHandler: hanldeRandomImageResponse(dogImage:error:))
     }
     
     

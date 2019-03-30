@@ -9,13 +9,22 @@
 import UIKit
 
 class DogAPI {
-    enum EndPoint: String {
-        case randomImageFromAllDogs = "https://dog.ceo/api/breeds/image/random"
+    enum EndPoint {
+        case randomImageFromAllDogs
+        case randomImageForBreed(String)
         
         var url: URL {
-            return URL(string: self.rawValue)!
+            return URL(string: self.stringValue)!
         }
         
+        var stringValue: String {
+            switch self {
+            case .randomImageFromAllDogs:
+                return "https://dog.ceo/api/breeds/image/random"
+            case .randomImageForBreed(let breed):
+                return "https://dog.ceo/api/breed/\(breed)/images/random"
+            }
+        }
     }
     
     class func requestImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
@@ -36,9 +45,8 @@ class DogAPI {
     }
     
     
-    class func requestRandomImage(completionHandler: @escaping (DogImage?, Error?) -> Void) {
-        
-        let task = URLSession.shared.dataTask(with: DogAPI.EndPoint.randomImageFromAllDogs.url) { (data, response, error) in
+    fileprivate static func fetchJSONForUrl(_ url: URL, completionHandler: @escaping (DogImage?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard let data = data else {
                 completionHandler(nil, error)
@@ -58,5 +66,15 @@ class DogAPI {
         task.resume()
     }
     
+    class func requestRandomImage(completionHandler: @escaping (DogImage?, Error?) -> Void) {
+        
+        fetchJSONForUrl(EndPoint.randomImageFromAllDogs.url, completionHandler: completionHandler)
+    }
+    
+    
+    class func requestRandomImage(for breed: String, completionHandler: @escaping (DogImage?, Error?) -> Void){
+        let breedURL = EndPoint.randomImageForBreed(breed).url
+        fetchJSONForUrl(breedURL, completionHandler: completionHandler)
+    }
     
 }
