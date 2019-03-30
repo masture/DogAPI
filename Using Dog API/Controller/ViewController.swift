@@ -20,9 +20,17 @@ class ViewController: UIViewController {
         
         breedPickerView.dataSource = self
         breedPickerView.delegate = self
+        
+        fetchBreedList()
 
     }
     
+    
+    private func fetchBreedList() {
+        
+        DogAPI.requestAllBreeds(completionHandler: handleBreedsListResponse(breeds:error:))
+        
+    }
     
     private func hanldeRandomImageResponse(dogImage: DogImage?, error: Error?) {
         guard let dogImage = dogImage else {
@@ -39,6 +47,13 @@ class ViewController: UIViewController {
     private func handleImageFileResponse(image: UIImage?, errro: Error?) {
         DispatchQueue.main.async {
             self.imageView.image = image
+        }
+    }
+    
+    private func handleBreedsListResponse(breeds: [String], error: Error?) {
+        self.breeds = breeds
+        DispatchQueue.main.async {
+            self.breedPickerView.reloadAllComponents()
         }
     }
 
