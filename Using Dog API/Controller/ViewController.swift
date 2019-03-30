@@ -30,13 +30,7 @@ class ViewController: UIViewController {
                 print(imageData)
                 let dogImageURL = URL(string: imageData.message)!
                 
-                DogAPI.requestImageFile(url: dogImageURL, completionHandler: { (image, error) in
-                    
-                    DispatchQueue.main.async {
-                        self.imageView.image = image
-                    }
-                    
-                })
+                DogAPI.requestImageFile(url: dogImageURL, completionHandler: self.handleImageFileResponse(image:errro:))
                 
                 
             } catch {
@@ -48,6 +42,12 @@ class ViewController: UIViewController {
         task.resume()
     }
 
+    
+    private func handleImageFileResponse(image: UIImage?, errro: Error?) {
+        DispatchQueue.main.async {
+            self.imageView.image = image
+        }
+    }
 
 }
 
