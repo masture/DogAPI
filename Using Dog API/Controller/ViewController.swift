@@ -15,12 +15,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DogAPI.requestRandomImage(completionHandler: self.hanldeRandomImageRequest(dogImage:error:))
+        DogAPI.requestRandomImage(completionHandler: self.hanldeRandomImageResponse(dogImage:error:))
     
     }
     
     
-    private func hanldeRandomImageRequest(dogImage: DogImage?, error: Error?) {
+    private func hanldeRandomImageResponse(dogImage: DogImage?, error: Error?) {
         guard let dogImage = dogImage else {
             print("Error fetching random dog: \(String(describing: error))")
             return
