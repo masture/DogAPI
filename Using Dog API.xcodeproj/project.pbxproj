@@ -13,6 +13,7 @@
 		0C6F7E8E224F8F6D00D785BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F7E8D224F8F6D00D785BC /* Assets.xcassets */; };
 		0C6F7E91224F8F6D00D785BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F7E8F224F8F6D00D785BC /* LaunchScreen.storyboard */; };
 		0C6F7E9C224F900900D785BC /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6F7E9B224F900900D785BC /* DogAPI.swift */; };
+		0C6F7E9E224F932900D785BC /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6F7E9D224F932900D785BC /* DogImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0C6F7E90224F8F6D00D785BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C6F7E92224F8F6D00D785BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C6F7E9B224F900900D785BC /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
+		0C6F7E9D224F932900D785BC /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6F7E9B224F900900D785BC /* DogAPI.swift */,
+				0C6F7E9D224F932900D785BC /* DogImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			files = (
 				0C6F7E89224F8F6B00D785BC /* ViewController.swift in Sources */,
 				0C6F7E87224F8F6B00D785BC /* AppDelegate.swift in Sources */,
+				0C6F7E9E224F932900D785BC /* DogImage.swift in Sources */,
 				0C6F7E9C224F900900D785BC /* DogAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
