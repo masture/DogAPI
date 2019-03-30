@@ -28,6 +28,23 @@ class ViewController: UIViewController {
             do {
                 let imageData = try decoder.decode(DogImage.self, from: data)
                 print(imageData)
+                let dogImageURL = URL(string: imageData.message)!
+                let task = URLSession.shared.dataTask(with: dogImageURL, completionHandler: { (data, response, error) in
+                    
+                    guard let data = data else {
+                        print("Error fetching image: \(String(describing: error))")
+                        return
+                    }
+                    
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
+                    
+                    
+                })
+                
+                task.resume()
                 
                 
             } catch {
