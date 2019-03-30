@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DogAPI.requestRandomImage(completionHandler: self.hanldeRandomImageResponse(dogImage:error:))
+        DogAPI.requestRandomImage(completionHandler: hanldeRandomImageResponse(dogImage:error:))
     
     }
     
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         let dogImageURL = URL(string: dogImage.message)!
         
-        DogAPI.requestImageFile(url: dogImageURL, completionHandler: self.handleImageFileResponse(image:errro:))
+        DogAPI.requestImageFile(url: dogImageURL, completionHandler: handleImageFileResponse(image:errro:))
     }
 
     
