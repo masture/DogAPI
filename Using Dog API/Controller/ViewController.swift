@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var breedPickerView: UIPickerView!
     
-    var breeds = ["african", "cockapoo", "dalmatian", "doberman"]
+    var breeds = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
